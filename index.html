@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punya Udayasiri — Full Stack Developer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                        },
+                        emeraldAccent: {
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Inter Font & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0f19;
+            color: #f3f4f6;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0f19;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1f2937;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #374151;
+        }
+        .glow-effect {
+            box-shadow: 0 0 50px -10px rgba(99, 102, 241, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-[#0b0f19] text-gray-100 selection:bg-indigo-500 selection:text-white">
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#0b0f19]/80 backdrop-blur-md border-b border-gray-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#hero" class="text-xl font-bold tracking-tight text-white flex items-center gap-2">
+                <span class="w-8 h-8 rounded-lg bg-gradient-to-tr from-indigo-600 to-emerald-500 flex items-center justify-center text-white font-mono text-sm shadow-md">PU</span>
+                <span>Punya Udayasiri</span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
+                <a href="#about" class="hover:text-emerald-400 transition-colors">About</a>
+                <a href="#skills" class="hover:text-emerald-400 transition-colors">Skills</a>
+                <a href="#projects" class="hover:text-emerald-400 transition-colors">Projects</a>
+                <a href="#contact" class="hover:text-emerald-400 transition-colors">Contact</a>
+            </nav>
+
+            <!-- Action Buttons / Mobile Menu Toggle -->
+            <div class="flex items-center space-x-4">
+                <a href="https://github.com/punya2001-pk" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center justify-center p-2.5 rounded-lg bg-gray-800/80 hover:bg-gray-700 text-gray-300 hover:text-white transition-all border border-gray-700">
+                    <i class="fa-brands fa-github text-lg"></i>
+                </a>
+                <a href="#contact" class="hidden sm:inline-flex items-center px-4 py-2 text-sm font-semibold text-white bg-gradient-to-r from-indigo-600 to-emerald-500 rounded-lg hover:opacity-90 transition shadow-lg shadow-indigo-500/20">
+                    Let's Talk
+                </a>
+                <button id="menu-btn" class="md:hidden p-2 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#0b0f19] border-b border-gray-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-emerald-400">About</a>
+            <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-emerald-400">Skills</a>
+            <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-emerald-400">Projects</a>
+            <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-emerald-400">Contact</a>
+            <div class="pt-2 flex items-center space-x-4 px-3">
+                <a href="https://github.com/punya2001-pk" target="_blank" class="text-gray-400 hover:text-white text-xl"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com" target="_blank" class="text-gray-400 hover:text-white text-xl"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden flex items-center min-h-[90vh]">
+        <!-- Background decorative gradients -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-[400px] h-[400px] bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-950/80 border border-indigo-800/60 text-indigo-300 text-xs sm:text-sm font-medium mb-6 shadow-inner">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    Available for Full Stack Opportunities
+                </div>
+                
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+                    Hi, I'm <span class="bg-gradient-to-r from-indigo-400 via-purple-300 to-emerald-400 bg-clip-text text-transparent">Punya Udayasiri</span>
+                </h1>
+                
+                <p class="text-xl sm:text-2xl font-medium text-emerald-400 mb-6 font-mono">
+                    Full Stack Developer
+                </p>
+                
+                <p class="text-lg text-gray-400 mb-10 leading-relaxed max-w-2xl">
+                    I craft robust, scalable, and high-performance web applications from concept to deployment. Focused on writing clean code, intuitive UI/UX, and building end-to-end digital solutions.
+                </p>
+                
+                <div class="flex flex-wrap gap-4 items-center">
+                    <a href="#projects" class="px-7 py-3.5 rounded-xl font-semibold text-white bg-indigo-600 hover:bg-indigo-500 transition-all shadow-lg shadow-indigo-600/30 flex items-center gap-2 group">
+                        <span>View Projects</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    <a href="#contact" class="px-7 py-3.5 rounded-xl font-semibold text-gray-200 bg-gray-800/80 hover:bg-gray-800 border border-gray-700/80 hover:border-gray-600 transition-all">
+                        Get in Touch
+                    </a>
+                </div>
+
+                <!-- Quick info badges -->
+                <div class="mt-14 pt-8 border-t border-gray-800 grid grid-cols-2 sm:grid-cols-3 gap-6 text-gray-400 text-sm">
+                    <div class="flex items-center gap-2.5">
+                        <i class="fa-solid fa-envelope text-indigo-400 text-base"></i>
+                        <span class="truncate">punyaudayasiri2001@gmail.com</span>
+                    </div>
+                    <div class="flex items-center gap-2.5">
+                        <i class="fa-brands fa-github text-indigo-400 text-base"></i>
+                        <a href="https://github.com/punya2001-pk" target="_blank" class="hover:text-white transition">punya2001-pk</a>
+                    </div>
+                    <div class="flex items-center gap-2.5 col-span-2 sm:col-span-1">
+                        <i class="fa-brands fa-linkedin text-indigo-400 text-base"></i>
+                        <a href="https://www.linkedin.com" target="_blank" class="hover:text-white transition">LinkedIn Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-[#0d1322]/50 border-t border-b border-gray-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">About Me</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-indigo-500 to-emerald-400 mx-auto mt-3 rounded-full"></div>
+                <p class="text-gray-400 mt-4 text-base">Get to know who I am, my background, and what drives me as a developer.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5 relative">
+                    <div class="relative rounded-2xl overflow-hidden border border-gray-800 bg-gray-900/80 p-2 shadow-2xl glow-effect">
+                        <div class="aspect-square rounded-xl bg-gradient-to-br from-indigo-950 via-gray-900 to-emerald-950 flex flex-col items-center justify-center p-8 text-center relative overflow-hidden">
+                            <div class="absolute inset-0 bg-[radial-gradient(#374151_1px,transparent_1px)] [background-size:16px_16px] opacity-25"></div>
+                            <div class="w-24 h-24 rounded-full bg-gradient-to-tr from-indigo-600 to-emerald-500 flex items-center justify-center text-3xl font-extrabold text-white mb-6 shadow-lg shadow-indigo-500/20">
+                                PU
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-1">Punya Udayasiri</h3>
+                            <p class="text-emerald-400 text-sm font-mono mb-4">Full Stack Software Developer</p>
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gray-800/80 text-gray-300 text-xs border border-gray-700">
+                                <i class="fa-solid fa-location-dot text-indigo-400"></i> Sri Lanka
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 space-y-6 text-gray-300">
+                    <h3 class="text-2xl font-semibold text-white">
+                        Building robust web architectures with passion and precision.
+                    </h3>
+                    <p class="leading-relaxed text-gray-400">
+                        Hello! I'm <strong class="text-white">Punya Udayasiri</strong>, a dedicated Full Stack Developer with a deep-rooted passion for building software that solves real-world problems. I enjoy bridging the gap between elegant frontend interfaces and secure, scalable backend services.
+                    </p>
+                    <p class="leading-relaxed text-gray-400">
+                        Whether it's designing RESTful APIs, optimizing database schemas, or creating dynamic single-page applications, I approach each project with attention to detail and a commitment to modern engineering standards. I am constantly exploring new technologies and refining my craftsmanship.
+                    </p>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-4">
+                        <div class="p-4 rounded-xl bg-gray-900/60 border border-gray-800">
+                            <span class="block text-2xl font-bold text-indigo-400 font-mono">End-to-End</span>
+                            <span class="text-xs text-gray-400">Full Stack Solution</span>
+                        </div>
+                        <div class="p-4 rounded-xl bg-gray-900/60 border border-gray-800">
+                            <span class="block text-2xl font-bold text-emerald-400 font-mono">Clean Code</span>
+                            <span class="text-xs text-gray-400">Maintainable & Scalable</span>
+                        </div>
+                        <div class="p-4 rounded-xl bg-gray-900/60 border border-gray-800 col-span-2 sm:col-span-1">
+                            <span class="block text-2xl font-bold text-purple-400 font-mono">Modern UI</span>
+                            <span class="text-xs text-gray-400">Responsive Experience</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Technical Skills</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-indigo-500 to-emerald-400 mx-auto mt-3 rounded-full"></div>
+                <p class="text-gray-400 mt-4 text-base">Technologies, tools, and frameworks I use to bring ideas to life.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Frontend -->
+                <div class="bg-gray-900/60 border border-gray-800 rounded-2xl p-6 hover:border-gray-700 transition duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-950 border border-indigo-800/60 flex items-center justify-center text-indigo-400 mb-5">
+                        <i class="fa-solid fa-code text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Frontend</h3>
+                    <ul class="space-y-2.5 text-gray-300 text-sm">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs"></i> HTML5 / CSS3 / JavaScript</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs"></i> React.js</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs"></i> Tailwind CSS</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs"></i> Responsive Web Design</li>
+                    </ul>
+                </div>
+
+                <!-- Backend -->
+                <div class="bg-gray-900/60 border border-gray-800 rounded-2xl p-6 hover:border-gray-700 transition duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-950 border border-emerald-800/60 flex items-center justify-center text-emerald-400 mb-5">
+                        <i class="fa-solid fa-server text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Backend</h3>
+                    <ul class="space-y-2.5 text-gray-300 text-sm">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs"></i> Node.js & Express.js</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs"></i> RESTful APIs & Services</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs"></i> Authentication & Security</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs"></i> Python / Basic Backend</li>
+                    </ul>
+                </div>
+
+                <!-- Databases -->
+                <div class="bg-gray-900/60 border border-gray-800 rounded-2xl p-6 hover:border-gray-700 transition duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-purple-950 border border-purple-800/60 flex items-center justify-center text-purple-400 mb-5">
+                        <i class="fa-solid fa-database text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Databases</h3>
+                    <ul class="space-y-2.5 text-gray-300 text-sm">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs"></i> MongoDB & NoSQL</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs"></i> MySQL / Relational DBs</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs"></i> Database Schema Design</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs"></i> Query Optimization</li>
+                    </ul>
+                </div>
+
+                <!-- Tools & Workflow -->
+                <div class="bg-gray-900/60 border border-gray-800 rounded-2xl p-6 hover:border-gray-700 transition duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-blue-950 border border-blue-800/60 flex items-center justify-center text-blue-400 mb-5">
+                        <i class="fa-solid fa-toolbox text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Tools & Workflow</h3>
+                    <ul class="space-y-2.5 text-gray-300 text-sm">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs"></i> Git & GitHub (<span class="font-mono text-xs text-indigo-300">punya2001-pk</span>)</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs"></i> Postman API Testing</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs"></i> VS Code Environment</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs"></i> Deployment & Vercel</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 bg-[#0d1322]/50 border-t border-b border-gray-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Featured Projects</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-indigo-500 to-emerald-400 mx-auto mt-3 rounded-full"></div>
+                <p class="text-gray-400 mt-4 text-base">A selection of my recent full stack applications and developments.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-gray-900/80 border border-gray-800 rounded-2xl overflow-hidden flex flex-col hover:border-gray-700 transition duration-300 group">
+                    <div class="h-48 bg-gradient-to-br from-indigo-950 to-gray-900 relative p-6 flex items-center justify-center border-b border-gray-800/80">
+                        <div class="absolute inset-0 bg-[radial-gradient(#374151_1px,transparent_1px)] [background-size:12px_12px] opacity-20"></div>
+                        <div class="text-center relative z-10">
+                            <i class="fa-solid fa-cart-shopping text-4xl text-indigo-400 mb-2 group-hover:scale-110 transition-transform duration-300"></i>
+                            <h4 class="text-lg font-bold text-white">E-Commerce Platform</h4>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <p class="text-xs font-mono text-emerald-400 mb-2">Full Stack Application</p>
+                            <h3 class="text-xl font-bold text-white mb-2">Modern E-Commerce Store</h3>
+                            <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                                A full-featured online shopping platform featuring user authentication, product catalogs, cart management, and secure checkout integration.
+                            </p>
+                        </div>
+                        <div>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-2.5 py-1 rounded-md bg-gray-800 text-gray-300 text-xs font-mono">React</span>
+                                <span class="px-2.5 py-1 rounded-md bg-gray-800 text-gray-300 text-xs font-mono">Node.js</span>
+                                <span class="px-2.5 py-1 rounded-md bg-gray-800 text-gray-300 text-xs font-mono">MongoDB</span>
+                                <span class="px-2.5 py-1 rounded-md bg-gray-800 text-gray-300 text-xs font-mono">Tailwind</span>
+                            </div>
+                            <div class="flex items-center justify-between pt-4 border-t border-gray-800">
+                                <a href="https://github.com/punya2001-pk" target="_blank" class="inline-flex items-center gap-2 text-sm font-semibold text-indigo-400 hover:text-indigo-300 transition">
+                                    <i class="fa-brands fa-github"></i> GitHub Source
+                                </a>
+                                <span class="text-xs text-gray-500 font-mono">2026</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-gray-900/80 border border-gray-800 rounded-2xl overflow-hidden flex flex-col hover:border-gray-700 transition duration-300 group">
+                    <div class="h-48 bg-gradient-to-br from-emerald-950 to-gray-900 relative p-6 flex items-center justify-center border-b border-gray-800/80">
+                        <div class="absolute inset-0 bg-[radial-gradient(#374151_1px,transparent_1px)] [background-size:12px_12px] opacity-20"></div>
+                        <div class="text-center relative z-10">
+                            <i class="fa-solid fa-list-check text-4xl text-emerald-400 mb-2 group-hover:scale-110 transition-transform duration-300"></i>
+                            <h4 class="text-lg font-bold text-white">Task Management Tool</h4>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <p class="text-xs font-mono text-emerald-400 mb-2">Web Productivity App</p>
+                            <h3 class="text-xl font-bold text-white mb-2">Collaborative Task Board</h3>
+                            <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                                A streamlined project management dashboard allowing teams to track milestones, assign tasks, update statuses, and monitor productivity metrics in real-time.
+                            </p>
+                        </div>
+                        <div>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-2.5 py-1 rounded-md bg-gray-800 text-gray-300 text-xs font-mono">JavaScript</span>
+                                <span class="px-2.5 py-1 rounded-md bg-gray-800 text-gray-300 text-xs font-mono">Express</span>
+                                <span class="px-2.5 py-1 rounded-md bg-gray-800 text-gray-300 text-xs font-mono">MySQL</span>
+                                <span class="px-2.5 py-1 rounded-md bg-gray-800 text-gray-300 text-xs font-mono">CSS3</span>
+                            </div>
+                            <div class="flex items-center justify-between pt-4 border-t border-gray-800">
+                                <a href="https://github.com/punya2001-pk" target="_blank" class="inline-flex items-center gap-2 text-sm font-semibold text-indigo-400 hover:text-indigo-300 transition">
+                                    <i class="fa-brands fa-github"></i> GitHub Source
+                                </a>
+                                <span class="text-xs text-gray-500 font-mono">2026</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-gray-900/80 border border-gray-800 rounded-2xl overflow-hidden flex flex-col hover:border-gray-700 transition duration-300 group">
+                    <div class="h-48 bg-gradient-to-br from-purple-950 to-gray-900 relative p-6 flex items-center justify-center border-b border-gray-800/80">
+                        <div class="absolute inset-0 bg-[radial-gradient(#374151_1px,transparent_1px)] [background-size:12px_12px] opacity-20"></div>
+                        <div class="text-center relative z-10">
+                            <i class="fa-solid fa-cloud-sun text-4xl text-purple-400 mb-2 group-hover:scale-110 transition-transform duration-300"></i>
+                            <h4 class="text-lg font-bold text-white">Weather & Analytics API</h4>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <p class="text-xs font-mono text-emerald-400 mb-2">API & Dashboard</p>
+                            <h3 class="text-xl font-bold text-white mb-2">Climate Tracking Dashboard</h3>
+                            <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                                An integrated weather tracking application connecting to external meteorological APIs to display forecasted conditions, historical charts, and location alerts.
+                            </p>
+                        </div>
+                        <div>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-2.5 py-1 rounded-md bg-gray-800 text-gray-300 text-xs font-mono">Node.js</span>
+                                <span class="px-2.5 py-1 rounded-md bg-gray-800 text-gray-300 text-xs font-mono">REST API</span>
+                                <span class="px-2.5 py-1 rounded-md bg-gray-800 text-gray-300 text-xs font-mono">HTML/CSS</span>
+                            </div>
+                            <div class="flex items-center justify-between pt-4 border-t border-gray-800">
+                                <a href="https://github.com/punya2001-pk" target="_blank" class="inline-flex items-center gap-2 text-sm font-semibold text-indigo-400 hover:text-indigo-300 transition">
+                                    <i class="fa-brands fa-github"></i> GitHub Source
+                                </a>
+                                <span class="text-xs text-gray-500 font-mono">2025</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- More repos link -->
+            <div class="text-center mt-12">
+                <a href="https://github.com/punya2001-pk" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gray-800 hover:bg-gray-700 text-gray-200 text-sm font-semibold border border-gray-700 transition">
+                    <i class="fa-brands fa-github text-lg"></i> Explore More on GitHub (punya2001-pk)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Get In Touch</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-indigo-500 to-emerald-400 mx-auto mt-3 rounded-full"></div>
+                <p class="text-gray-400 mt-4 text-base">Have a project in mind, an opportunity, or just want to connect? Drop a message below!</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <!-- Contact info cards -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="bg-gray-900/60 border border-gray-800 rounded-2xl p-6">
+                        <h3 class="text-xl font-bold text-white mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-indigo-950 border border-indigo-800/60 flex items-center justify-center text-indigo-400 shrink-0">
+                                    <i class="fa-solid fa-envelope text-lg"></i>
+                                </div>
+                                <div>
+                                    <span class="block text-xs font-mono text-gray-400">EMAIL</span>
+                                    <a href="mailto:punyaudayasiri2001@gmail.com" class="text-white font-medium hover:text-emerald-400 transition">punyaudayasiri2001@gmail.com</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-emerald-950 border border-emerald-800/60 flex items-center justify-center text-emerald-400 shrink-0">
+                                    <i class="fa-brands fa-github text-lg"></i>
+                                </div>
+                                <div>
+                                    <span class="block text-xs font-mono text-gray-400">GITHUB</span>
+                                    <a href="https://github.com/punya2001-pk" target="_blank" class="text-white font-medium hover:text-emerald-400 transition">punya2001-pk</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-purple-950 border border-purple-800/60 flex items-center justify-center text-purple-400 shrink-0">
+                                    <i class="fa-brands fa-linkedin text-lg"></i>
+                                </div>
+                                <div>
+                                    <span class="block text-xs font-mono text-gray-400">LINKEDIN</span>
+                                    <a href="https://www.linkedin.com" target="_blank" class="text-white font-medium hover:text-emerald-400 transition">Punya Udayasiri | LinkedIn</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact form mockup -->
+                <div class="lg:col-span-7">
+                    <div class="bg-gray-900/80 border border-gray-800 rounded-2xl p-8 shadow-xl">
+                        <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-300 mb-2">Your Name</label>
+                                    <input type="text" required class="w-full px-4 py-3 rounded-xl bg-gray-950 border border-gray-800 text-white focus:outline-none focus:border-indigo-500 transition" placeholder="John Doe">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-300 mb-2">Your Email</label>
+                                    <input type="email" required class="w-full px-4 py-3 rounded-xl bg-gray-950 border border-gray-800 text-white focus:outline-none focus:border-indigo-500 transition" placeholder="john@example.com">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">Subject</label>
+                                <input type="text" required class="w-full px-4 py-3 rounded-xl bg-gray-950 border border-gray-800 text-white focus:outline-none focus:border-indigo-500 transition" placeholder="Project Inquiry / Opportunity">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">Message</label>
+                                <textarea rows="4" required class="w-full px-4 py-3 rounded-xl bg-gray-950 border border-gray-800 text-white focus:outline-none focus:border-indigo-500 transition resize-none" placeholder="Write your message here..."></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 rounded-xl font-semibold text-white bg-gradient-to-r from-indigo-600 to-emerald-500 hover:opacity-90 transition shadow-lg shadow-indigo-600/20">
+                                Send Message
+                            </button>
+                        </form>
+
+                        <!-- Success message box -->
+                        <div id="form-success" class="hidden mt-6 p-4 rounded-xl bg-emerald-950/60 border border-emerald-800 text-emerald-300 text-center text-sm font-medium">
+                            <i class="fa-solid fa-circle-check mr-2"></i> Thank you! Your message has been sent successfully.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 border-t border-gray-800/80 bg-[#090d16] text-center text-gray-500 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>&copy; 2026 Punya Udayasiri. All rights reserved.</p>
+            <div class="flex items-center space-x-6 text-lg">
+                <a href="https://github.com/punya2001-pk" target="_blank" class="hover:text-gray-300 transition"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com" target="_blank" class="hover:text-gray-300 transition"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:punyaudayasiri2001@gmail.com" class="hover:text-gray-300 transition"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Contact Form Mockup Submission
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const form = document.getElementById('contact-form');
+            const successBox = document.getElementById('form-success');
+            
+            form.reset();
+            successBox.classList.remove('hidden');
+            
+            setTimeout(() => {
+                successBox.classList.add('hidden');
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
